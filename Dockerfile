@@ -16,8 +16,8 @@ COPY s6/ /etc
 
 RUN apt-get update && apt install -y wget xz-utils tzdata software-properties-common
 
-HEALTHCHECK  --timeout=3s CMD wget --quiet --tries=1 --spider http://localhost:8112 || exit 1
-EXPOSE 8112 58846 50000 50000/udp
-VOLUME /config /downloads
+HEALTHCHECK  --timeout=3s CMD wget --quiet --tries=1 --spider http://localhost:7878 || exit 1
+EXPOSE 7878
+VOLUME /config /app /data
 
 ENTRYPOINT ["/init"]
