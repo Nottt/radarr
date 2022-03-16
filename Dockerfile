@@ -14,7 +14,7 @@ COPY s6/ /etc
 
 # Add necessary packages
 
-RUN apt-get update && apt install -y wget xz-utils tzdata software-properties-common
+RUN apt-get update && apt install -y wget xz-utils tzdata software-properties-common > /dev/null 2>&1
 
 HEALTHCHECK  --timeout=3s CMD wget --quiet --tries=1 --spider http://localhost:7878 || exit 1
 EXPOSE 7878
